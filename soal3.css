@@ -1,0 +1,7 @@
+header > h1, main, aside {
+    display: inline-block;
+  }
+  
+  header, footer {
+    align-text: center;
+  }

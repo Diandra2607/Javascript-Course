@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GuntingBatuKertas</title>
+        <style>
+          body {
+            background-color: rgba(255, 0, 102, 0.523);
+            color :white;
+            font-family: 'Times New Roman', Times, serif;
+          }
+
+          .title{
+            font-size: 25px;
+            font-weight: bold;
+          }
+
+          .move-icon {
+            height: 40px;
+          }
+
+          .move-button {
+            background-color: transparent;
+            border : 5px solid white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+
+          .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 40px;
+          }
+        </style>
+    </head>
+    <body>
+        <p>Gunting Batu Kertas</p>
+        <button onclick="
+        Main('Gunting');
+      " class="move-button">
+        <img src="images/scissors-emoji.png" class="move-icon">Gunting
+      </button>
+  
+
+      <button onclick="
+      Main('Batu');
+    " class="move-button">
+      <img src="images/rock-emoji.png" class="move-icon">Batu
+    </button>
+
+    <button onclick="
+    Main('Kertas');
+  " class="move-button">
+    <img src="images/paper-emoji.png" class="move-icon">Kertas
+  </button>
+
+<p class="js-result"></p>
+<p class="js-moves"></p>
+<p class="js-score"></p>
+
+<button onclick="
+score.wins= 0;
+score.losses = 0;
+score.ties = 0;
+localStorage.removeItem('score');
+updateScoreElement();
+">Reset Score</button>
+        <script>
+             let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0,
+        ties: 0
+      };
+             
+           if(!score)  {
+        score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+        };
+      }
+           function Main(GerakanPemain) {
+        const GerakanKomputer = pickComputerMove();
+
+        let Hasil = '';
+
+        if (GerakanPemain === 'Gunting') {
+          if (GerakanKomputer === 'Gunting') {
+            Hasil = 'Kamu Seri.';
+          } else if (GerakanKomputer === 'Kertas') {
+           Hasil = 'Hore, Kamu menang.';
+          } else if (GerakanKomputer === 'Batu') {
+            Hasil = 'Ya, Kamu kalah.';
+          }
+
+        } else if (GerakanPemain === 'Batu') {
+          if (GerakanKomputer === 'Batu') {
+            Hasil = 'Kamu Seri.';
+          } else if (GerakanKomputer === 'Gunting') {
+            Hasil = 'Hore, Kamu menang.';
+          } else if (GerakanKomputer === 'Kertas') {
+            Hasil = 'Ya, Kamu kalah.';
+          }
+
+        } else if (GerakanPemain === 'Kertas') {
+          if (GerakanKomputer === 'Kertas') {
+            Hasil = 'Kamu Seri.';
+          } else if (GerakanKomputer === 'Batu') {
+            Hasil = 'Hore, Kamu menang.';
+          } else if (GerakanKomputer === 'Gunting') {
+            Hasil = 'Ya, Kamu kalah.';
+          }
+
+        }
+
+        if (Hasil === 'Hore, Kamu menang.') {
+          score.wins += 1;
+        } else if (Hasil === 'Ya, Kamu kalah.') {
+          score.losses += 1;
+        } else if (Hasil === 'Kamu Seri.') {
+          score.ties += 1;
+        }
+
+        localStorage.setItem('score', JSON.stringify(score));
+
+        updateScoreElement();
+
+document.querySelector('.js-hasil').innerHTML = hasil;
+
+document.querySelector('.js-gerakan').innerHTML = `Kamu ${GerakanPemain} - ${GerakanKomputer} Komputer`;
+}
+
+function updateScoreElement() {
+document.querySelector('.js-score')
+  .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+}
+        
+        alert(`Kamu memilih ${GerakanPemain}. Computer picked ${GerakanKomputer}. ${Hasil}
+        Menang: ${score.wins}, Kalah: ${score.losses}, Seri: ${score.ties}`);
+      
+
+      function pickComputerMove() {
+        const AngkaAcak = Math.random();
+        let GerakanKomputer = '';
+        if (AngkaAcak >= 0 && AngkaAcak < 1/3)
+        {
+            GerakanKomputer = 'Gunting';
+        } else if (AngkaAcak >= 1/3 && AngkaAcak < 2/3) {
+            GerakanKomputer = 'Batu';
+        } else if (AngkaAcak >= 2/3 && AngkaAcak <=1){
+            GerakanKomputer = 'Kertas';
+        }
+
+        return GerakanKomputer;
+      }
+      </script>
+  </body>
+</html>
+   
