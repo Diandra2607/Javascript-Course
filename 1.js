@@ -1,3 +1,5 @@
-let number1 = '2';
-let number2 = 3;
-let findTheLogic = number1 == 2 || number2 === '3';
+function Peringatan(){
+    let NamaDepan = document.getElementById("Nama-Depan").value();
+    let NamaBelakang = document.getElementById("Nama-Belakang").value();
+    console.log(`${NamaDepan} ${NamaBelakang}`);
+}

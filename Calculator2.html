@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kalkulator 2</title>
+        <link rel ="stylesheet" href="Calculator.css">
+    </head>
+
+    <body>
+<div class = "container">
+    <div class = "container-row">
+        <input id = "display" class = "input" type = "text">
+    </div>
+    <div class = "container-row">
+        <button class = "btn btn-ac" onclick = "btnclick(this.innerText)">AC</button>
+        <button class = "btn"onclick = "btnclick(this.innerText)" >C</button>
+        <button class = "btn"onclick = "btnclick(this.innerText)" >*</button>
+    </div>
+
+    <div class = "container-row">
+        <button class = "btn" value = "7" onclick = "btnclick(this.innerText)">7</button>
+        <button class = "btn" value = "8"onclick = "btnclick(this.innerText)" >8</button>
+        <button class = "btn" value = "9"onclick = "btnclick(this.innerText)" >9</button>
+        <button class = "btn" value = "/" onclick = "btnclick(this.innerText)">/</button>
+    </div>
+
+    <div class = "container-row">
+        <button class = "btn" value = "4" onclick = "btnclick(this.innerText)">4</button>
+        <button class = "btn" value = "5" onclick = "btnclick(this.innerText)">5</button>
+        <button class = "btn" value = "6" onclick = "btnclick(this.innerText)">6</button>
+        <button class = "btn" value = "+" onclick = "btnclick(this.innerText)" >+</button>
+    </div>
+
+    <div class = "container-row">
+        <button class = "btn" value = "1" onclick = "btnclick(this.innerText)">1</button>
+        <button class = "btn" value = "2" onclick = "btnclick(this.innerText)">2</button>
+        <button class = "btn" value = "3" onclick = "btnclick(this.innerText)">3</button>
+        <button class = "btn" value = "-" onclick = "btnclick(this.innerText)">-</button>
+    </div>
+
+    <div class = "container-row">
+        <button class = "btn" value = "+-" onclick = "btnclick(this.innerText)">+-</button>
+        <button class = "btn" value = "0" onclick = "btnclick(this.innerText)">0</button>
+        <button class = "btn" value = "."onclick = "btnclick(this.innerText)" >.</button>
+        <button class = "btn" value = "="onclick = "btnclick(this.innerText)" >=</button>
+    </div>
+</div>
+    </body>
+    <script src = "Calculator.js">
+    </script>
+    </html>
